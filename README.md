@@ -1,88 +1,26 @@
-# Quero ser Btime!
+#OCR Bancário 
 
-Nossa solução é um SaaS de Gestão de Equipes Externas, usamos tecnologia PHP onde nosso stack se baseia em: Symfony Framework, MySQL, Redis, RabbitMQ. Procuramos um profissional que tenha sólidos conhecimentos de arquitetura e capacidade de pensar fora da caixa solucionando problemas de forma simples e rápida, levando-se em conta temas como segurança, tratamento de erros, separação de camadas/responsabilidades, performance, reusabilidade e aderência a padrões de projetos.
+[link para o problema no dojopuzzle](http://dojopuzzles.com/problemas/exibe/ocr-bancario/)
 
-## Local
+Você trabalha para um banco, que recentemente comprou uma máquina muito engenhosa para auxiliar na leitura de cartas e faxes enviados para o escritório-central. Esta máquina escaneia os documentos em papel e produz um arquivo com um grande número de entradas, sendo que cada uma tem este formato:
 
-WeWork Paulista, São Paulo - SP | em frente ao metrô ;)
+```
+ _       _   _       _   _   _   _   _
+| |  |   _|  _| |_| |_  |_    | |_| |_|
+|_|  |  |_   _|   |  _| |_|   | |_|  _|
 
-## Nossa empresa
+```
+Cada entrada possui 4 linhas, e cada linha possui 27 caracteres. As 3 primeiras linhas contém o número da conta, utilizando pipes e underscores, e a quarta linha é vazia. Cada número de conta possui nove dígitos (entre 0 e 9). Cada arquivo pode conter até 500 registros. Sua tarefa é desenvolver um programa que obtenha esse arquivo e devolva a lista de contas.
+Tradução livre de (http://www.codingdojo.org/cgi-bin/wiki.pl?KataBankOCR)
 
-A Btime é uma startup que está mudando a forma com que as pessoas trabalham. Fomos acelerados pela Liga AutoTech, e buscamos formar uma equipe qualificada e multidisciplinar para atender a crescente demanda, com objetivo de construir soluções em conjunto, onde maior valor é o sucesso de nossos clientes.
+# Solução 
 
-Nós oferecemos um ambiente descontraído em que todos os membros possuem a liberdade e responsabilidade de criar as melhores soluções possíveis, isso contando com o suporte de todos os membros, do estagiário até o CEO.
+A solução é composta de um gerador de contas aleatórias (simulando a maquina que lê as cartas) e um parser, ambos feitos em em JavaScript (node.js ECMAScript 6):
 
-Se você quer mudar a vida das pessoas e a forma que elas trabalham, ou melhor, se você quer mudar o mundo =), venha com a Btime e faça parte dessa história.
+O gerador de contas aleatórias escreve `n` contas aleatórias em um arquivo `accounts.txt`. Estas contas serão geradas utilizando pipes e underscores conforme proposto no problema.
 
-## Aqui você irá
+*Para criar o arquivo com as contas, execute `node letterMachine.js n` sendo `n` a quantidade de contas a ser gerada, caso omitido, gerará 500 contas.*
 
-- Garantir o desenvolvimento de software com qualidade, através de integração contínua, automação de testes e profundos code-reviews;
-- Construir plataformas sustentáveis e estáveis para novas ideias de produto; 
-- Encontrar soluções simples e elegantes para problemas difíceis; 
-- Trabalhar com TDD e Testes Automatizados; 
-- Trabalhar com metodologia ágil scrum;
-- Trabalhar com APIs REST;
-- Trabalhar com time multidisciplinar.
+O parser, lê este arquivo de entrada criado pela maquina, com as contas em pipes e undersocres, e retorna elas (via stdout) convertidas em formato numérico separadas por quebras de linha.
 
-
-### [Como me candidato?](id:ComoMeCandidato)
-1. Forka esse projeto, escolha um dos testes aleatórios do [DojoPuzzle](http://dojopuzzles.com/), resolva-o com sua linguagem favorita e nos envie um e-mail para **team@btime.com.br** com o seu **fork** e o **link do problema** (link para o GitHub, BitBucket, tarball anexada, whatever). Junto do seu e-mail, adicione um link para seu curriculum, portfolio ou linkedin. Avaliaremos seu *fork* o quanto antes.<br />
-**Duração:** de 30m à 2h
-
-2. Com hora marcada, um dos membros do nosso time entrará em contato com você por telefone ou Skype, para uma conversa descontraída sobre suas habilidades.<br />
-**Duração:** de 30m à 40m
-
-3. Visita aqui no escritório, com uma sessão de pair-programming.<br />
-**Duração:** de 1h à 1h30m
-
-\* Este processo pode ser alterado sem prévio aviso. Então, fique esperto com as atualizações deste README! :-)
-
-### [Requisitos Básicos](id:RequisitosBasicos)
-Precisamos de gente que:
-
-* Procure o estado da arte do código, da arquitetura e do design de software, **MAS** que tenha **plena noção** de que nem sempre é possível alcançá-lo em um ambiente ágil =(;
-* Tenha experiência com desenvolvimento para web;
-* Que reconheça que a linguagem **&lt;escolha sua linguagem favorita&gt;** não é a melhor linguagem/solução para todos os problemas.
-* Ter graduação é legal! Mas se você não for formado, não tem problema. Conhecemos vários profissionais plenamente capacitados que não são formados.
-
-## Oferecemos
-
-- máquina de chopp com lençol freático =)
-- flexibilidade de horário
-- café e leite a vontade
-- mesa de ping pong
-- área de descanso
-
-## Modelo de contrato
-
-PJ a combinar
-
-
-## [Posições](id:posicoes)
-----
-#### [Software Engineer](id:Qualificacoes-SE)
-**Qualificações mínimas**
-- PHP 5+
-- Symfony
-- MySQL
-- Design Patterns
-- PHPUnit
-
-**Desejáveis:**
-- Git/BitBucket
-- Google APIs
-- Redis
-- RabbitMQ
-- RESTFul API
-- Docker
-
-**Diferenciais:**
-- TDD
-- SOLID (object-oriented design)
-- Elastic Search
-- Java
-- NodeJs
-
-
-## [Nossos Links](id:Extra-Links)
-* [Btime](https://btime.com.br/)
+*Para rodar o parser, execute `node parser.js file` sendo `file` o arquivo de entrada, caso omitido, tentará ler o arquivo `accounts.txt`.*
