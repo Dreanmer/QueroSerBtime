@@ -1,4 +1,4 @@
-#OCR Bancário 
+# OCR Bancário 
 
 [link para o problema no dojopuzzle](http://dojopuzzles.com/problemas/exibe/ocr-bancario/)
 
@@ -19,8 +19,8 @@ A solução é composta de um gerador de contas aleatórias (simulando a maquina
 
 O gerador de contas aleatórias escreve `n` contas aleatórias em um arquivo. Estas contas serão geradas utilizando pipes e underscores conforme proposto no problema.
 
-*Para criar o arquivo com as contas, execute `node letterMachine.js n file` sendo `n` a quantidade de contas a ser gerada e `file` o arquivo de output, caso omitido, gerará 500 contas no `accounts.txt`.*
+*Para criar o arquivo com as contas, execute `node letterMachine.js n file` sendo `n` a quantidade de contas a ser gerada e `file` o arquivo de output, caso omitido, gerará 500 contas no [`accounts.txt`](./accounts.txt).*
 
 O parser, lê este arquivo de entrada criado pela maquina, com as contas em pipes e undersocres, e retorna elas (via stdout) convertidas em formato numérico separadas por quebras de linha.
 
-*Para rodar o parser, execute `node parser.js file` sendo `file` o arquivo de entrada, caso omitido, tentará ler o arquivo `accounts.txt`.*
+*Para rodar o parser, execute `node parser.js file` sendo `file` o arquivo de entrada, caso omitido, tentará ler o arquivo [`accounts.txt`](./accounts.txt).*
