@@ -17,9 +17,9 @@ Tradução livre de (http://www.codingdojo.org/cgi-bin/wiki.pl?KataBankOCR)
 
 A solução é composta de um gerador de contas aleatórias (simulando a maquina que lê as cartas) e um parser, ambos feitos em em JavaScript (node.js ECMAScript 6):
 
-O gerador de contas aleatórias escreve `n` contas aleatórias em um arquivo `accounts.txt`. Estas contas serão geradas utilizando pipes e underscores conforme proposto no problema.
+O gerador de contas aleatórias escreve `n` contas aleatórias em um arquivo. Estas contas serão geradas utilizando pipes e underscores conforme proposto no problema.
 
-*Para criar o arquivo com as contas, execute `node letterMachine.js n` sendo `n` a quantidade de contas a ser gerada, caso omitido, gerará 500 contas.*
+*Para criar o arquivo com as contas, execute `node letterMachine.js n file` sendo `n` a quantidade de contas a ser gerada e `file` o arquivo de output, caso omitido, gerará 500 contas no `accounts.txt`.*
 
 O parser, lê este arquivo de entrada criado pela maquina, com as contas em pipes e undersocres, e retorna elas (via stdout) convertidas em formato numérico separadas por quebras de linha.
 
